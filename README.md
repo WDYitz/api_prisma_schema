@@ -38,6 +38,11 @@
 
 * A autenticação so ocorre se o email da tabela `user` for igual ao email digitado. (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
 
+### VOCÊ DEVE MUDAR SEU NEXTAUTH_SECRET NO ARQUIVO `.ENV` E SO GERAR UM HASH ALEATORIO DE 32 CARACTERES E MUDAR SUA URL PARA O SEU BANCO DE DADOS COMO NO EXEMPLO ABAIXO 
+
+* ### `DATABASE_URL = "postgresql://nome:senha@localhost:5432/nome_do_db?schema=public"` Nesse caso estou usando Postgress
+
+## ANTES DE INICIAR O PROJETO UTILIZE O COMANDO `npx prisma db push` PARA SINCRONIZAR O SEU SCHEMA PRISMA COM SEU BANCO DE DADOS.
 
 ## Getting Started
 
