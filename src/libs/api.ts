@@ -18,7 +18,7 @@ export default {
         id: true,
         name: true,
         email: true,
-        role: true
+        role: true,
       },
     });
     return users;
@@ -29,6 +29,15 @@ export default {
         id: id,
       },
     });
+  },
+  getUserFromEmail: async (email: string) => {
+    const user = await prisma.user.findFirst({
+      where: {
+        email,
+        active: true,
+      },
+    });
+    return user;
   },
   addUser: async (name: string, email: string) => {
     const user = await prisma.user.create({

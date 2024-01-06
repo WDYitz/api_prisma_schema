@@ -15,7 +15,7 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  border: none;
+  /* border: none; */
   outline: none;
 }
 
@@ -28,9 +28,15 @@
 }
 
 body {
+  height: 100vh;
   overflow: auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+#__next{
+  height: 100%;
+  width: 100%;
 }

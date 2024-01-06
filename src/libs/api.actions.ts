@@ -1,5 +1,6 @@
 import { useToast } from "@/hooks/useToast";
 import { User } from "@/types/User";
+import axios from "axios";
 import { useState } from "react";
 
 export const useUserActions = (URL: string, users?: any) => {
@@ -13,13 +14,13 @@ export const useUserActions = (URL: string, users?: any) => {
   const handleLoadMoreUsers = async () => {
     if (!loading) {
       setLoading(true);
-      const req = await fetch(`/api/users?page=${page + 1}`);
-      const json = await req.json();
+      const json = await axios.get(`/api/users?page=${page + 1}`);
+     
       if (json.status) {
-        if (json.users.length === 0) {
+        if (json.data.users.length === 0) {
           setShowMore(false);
         }
-        setUser([...user, ...json.users]);
+        setUser([...user, ...json.data.users]);
       }
       setLoading(false);
       setPage(page + 1);
@@ -27,12 +28,8 @@ export const useUserActions = (URL: string, users?: any) => {
   };
 
   const handlePostUser = async (name: string, email: string) => {
-    await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email }),
+    await axios.post(URL, {
+      name, email 
     });
   };
 

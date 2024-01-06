@@ -10,7 +10,7 @@ export const Users = ({ user, handleDelete }: UserType) => {
                 <div
                     key={index}
                     onClick={() => handleDelete(item.id)}
-                    className="w-[320px] bg-indigo-500 hover:bg-indigo-400 rounded-lg flex flex-col p-2 cursor-pointer my-4"
+                    className="w-full max-w-[320px] bg-indigo-500 hover:bg-indigo-400 rounded-lg flex flex-col p-1 cursor-pointer my-4"
                 >
                     <span>{item.name.toUpperCase()}</span>
                     <span>Email: {item.email}</span>

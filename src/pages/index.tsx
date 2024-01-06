@@ -1,63 +1,30 @@
-import { Inter } from 'next/font/google'
-// LIBS
-import api from '@/libs/api'
-// TYPES
-import { User } from '@/types/User'
-// COMPONENTS
-import { Loading } from '@/components/loading/loading'
-import { Users } from '@/components/user/user'
-import { ShowMoreButton } from '@/components/showMoreButton/button'
-import { Toast } from '@/components/toast/toast'
-import { FormUser } from '@/components/form/formUser'
-// HOOKS
-import { useUserActions } from '@/utils/api.actions'
+import { RouteButton } from "@/components/routeButton"
+import { signIn, signOut, useSession } from "next-auth/react";
 
-const inter = Inter({ subsets: ['latin'] })
+const Home = () => {
+    const { data: session } = useSession()
 
-type Props = {
-  users: User[]
+    return (
+        <main className="h-full bg-gradient-to-r from-zinc-700 to-zinc-900 pt-20">
+            {!session &&
+                <button onClick={() => signIn()} className="w-[150px] py-2 px-4 absolute top-4 left-4 border-2 border-indigo-500 rounded-md">LOGIN</button>
+            }
+
+            {session &&
+                <>
+                    <p className="w-[250px] bg-gradient-to-r from-zinc-400 to-zinc-700 p-2">
+                        Olá {session.user?.name}.
+                    </p>
+                    <p className="w-[250px] bg-gradient-to-r from-zinc-400 to-zinc-700 p-2">
+                        Email: {session.user?.email}
+                    </p>
+                    <button onClick={() => signOut()} className="w-[150px] py-2 px-4 absolute top-4 left-4 border-2 border-indigo-500 rounded-md">Deslogar</button>
+                </>
+            }
+
+            <RouteButton path_1={"usuarios"} text={"Usuarios"} top={'top-4'} right={'right-4'} />
+            <RouteButton path_1={"usuarios"} path_2={'novo'} text={"Criar usuario"} top={"top-4"} right={"right-44"} />
+        </main>
+    )
 }
-
-export default function Home({ users }: Props) {
-
-  const {
-    handleLoadMoreUsers,
-    handleDeleteUser,
-    toastIsShowing,
-    showMore,
-    loading,
-    user } = useUserActions('/api/users', users)
-
-
-  return (
-    <main className={`flex justify-around flex-col min-h-screen items-center overflow-y-auto ${inter.className}`}>
-      <FormUser />
-
-      <Users
-        user={user}
-        handleDelete={handleDeleteUser}
-      />
-
-      <Loading loading={loading} />
-
-      <ShowMoreButton
-        showMore={showMore}
-        handleLoadMore={handleLoadMoreUsers}
-      />
-
-      <Toast toastIsShowing={toastIsShowing} message={'Usuario deletado com sucesso!'} />
-
-    </main>
-  )
-}
-
-export const getServerSideProps = async () => {
-  const users = await api.getAllUsers(1);
-
-  return {
-    props: {
-      users
-    }
-  }
-}
-
+export default Home;
