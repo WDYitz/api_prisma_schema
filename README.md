@@ -36,13 +36,14 @@
 * Caso queira Deletar um usuario  utilize a rota `http://localhost/api/users` adicione no `body` da requisição o id.
 * Rota de mudança de usuario ainda nao implementada 100%
 
-* A autenticação so ocorre se o email da tabela `user` for igual ao email digitado. (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
+- A autenticação so ocorre se o email da tabela `user` for igual ao email digitado.
+- (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
 
-### VOCÊ DEVE MUDAR SEU NEXTAUTH_SECRET NO ARQUIVO `.ENV` E SO GERAR UM HASH ALEATORIO DE 32 CARACTERES E MUDAR SUA URL PARA O SEU BANCO DE DADOS COMO NO EXEMPLO ABAIXO 
+### Você deve mudar seu NEXTAUTH_SECRET no arquivo  `.ENV` basta gerar um HASH aleatorio de 32 caracteres (alguns sites fazem isso pra você) e mudar a URL para o seu banco de dados como no exemplo abaixo 
 
-* ### `DATABASE_URL = "postgresql://nome:senha@localhost:5432/nome_do_db?schema=public"` Nesse caso estou usando Postgress
+* `DATABASE_URL = "postgresql://nome:senha@localhost:5432/nome_do_db?schema=public"` 
 
-## ANTES DE INICIAR O PROJETO UTILIZE O COMANDO `npx prisma db push` PARA SINCRONIZAR O SEU SCHEMA PRISMA COM SEU BANCO DE DADOS.
+### Antes de iniciar o projeto use o comando `npx prisma db push` pra sincronizar o seu Schema do Prisma com o banco de dados.
 
 ## Getting Started
 
