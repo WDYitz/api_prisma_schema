@@ -39,7 +39,7 @@
 - A autenticação so ocorre se o email da tabela `user` for igual ao email digitado.
 - (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
 
-### Você deve mudar seu NEXTAUTH_SECRET no arquivo  `.ENV` basta gerar um HASH aleatorio de 32 caracteres (alguns sites fazem isso pra você) e adicionar as informações do seu banco de dados no `DATABASE_URL` como no exemplo abaixo.
+### Você deve mudar algumas coisas no arquivo `.env` onde as variaveis de ambiente ficam armazenadas, dentro do arquivo `.env` você deve adicionar no NEXTAUTH_SECRET um HASH aleatorio de 32 caracteres (alguns sites fazem isso pra você) e adicionar as informações do seu banco de dados no `DATABASE_URL` como no exemplo abaixo.
 
 * `DATABASE_URL = "postgresql://nome:senha@localhost:5432/nome_do_db?schema=public"` 
 
