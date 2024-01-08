@@ -28,13 +28,15 @@
 
 
 ### API ESTA LOCALIZADA EM `PAGES/API/USERS`
-### AUTENTICAÇÃO ESTA LOCALIZADA EM `PAGES/AUTH`
 
 * Selecionar com paginação utilize a rota `http://localhost/api/users?page=id` sendo o id o numero da pagina.
 * Selecionar unico usuario utilize a rota `http://localhost/api/users/id` sendo o id um numero. 
 - (o id deve ser o mesmo id utilizado na tabela `user`)
 * Caso queira Deletar um usuario  utilize a rota `http://localhost/api/users` adicione no `body` da requisição o id.
 * Rota de mudança de usuario ainda nao implementada 100%
+
+  
+### AUTENTICAÇÃO ESTA LOCALIZADA EM `PAGES/AUTH`
 
 - A autenticação so ocorre se o email da tabela `user` for igual ao email digitado.
 - (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
