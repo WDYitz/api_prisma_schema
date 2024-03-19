@@ -38,7 +38,7 @@
   
 ### AUTENTICAÇÃO ESTA LOCALIZADA EM `PAGES/AUTH`
 
-- A autenticação so ocorre se o email da tabela `user` for igual ao email digitado.
+- A autenticação ocorre caso o email da tabela `user` seja igual ao email digitado.
 - (autenticação por email, senha ainda não implementada utilize qualquer senha como EX: 123).
 
 ### - Você deve modificar algumas informações no arquivo `.env` onde as variaveis de ambiente ficam armazenadas, dentro do arquivo `.env` você deve adicionar no NEXTAUTH_SECRET um HASH aleatorio de 32 caracteres (alguns sites fazem isso pra você) e adicionar as informações do seu banco de dados no `DATABASE_URL` como no exemplo abaixo.
